@@ -1,0 +1,11 @@
+langcode: ro
+status: true
+dependencies:
+  enforced:
+    module:
+      - country
+name: Country
+vid: country
+description: 'Stores the country'
+hierarchy: 0
+weight: 0

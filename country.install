@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Populate all conuntry taxomony.
+ */
+function country_update_8002() {
+  if(!file_exists('public://country-flags')){
+    mkdir('public://country-flags', 0755);
+  }
+
+  $data_path = drupal_get_path('module', 'country') . '/data/json/countries.json';
+  $response = file_get_contents($data_path);
+  $items = json_decode($response, TRUE);
+  if ($items) {
+    foreach ($items as $item) {
+
+      $filePath = drupal_get_path('module', 'country') . '/data/flags/';
+      $file = array(
+        'uri'           => $filePath . $item['flag_128'],
+        'uid'         => 1,
+        'status'        => 1,
+        'display'       => 1,
+      );
+
+      $file2 = \Drupal\file\Entity\File::create($file);
+
+      $file3 = file_copy($file2, 'public://country-flags/' . $item['flag_128'], FILE_EXISTS_RENAME);
+      $flag_fid = $file3->id();
+
+
+      $new_term = \Drupal\taxonomy\Entity\Term::create([
+        'name' => $item['name'],
+        'vid' => 'country',
+        'field_name_official' => $item['name_official'],
+        'field_name_official' => $item['name_official'],
+        'field_code2l' => $item['code2l'],
+        'field_code3l' => $item['code3l'],
+        'field_flag' => ['target_id' => $flag_fid],
+      ]);
+      // Save the taxonomy term.
+      $new_term->save();
+    }
+  }
+}

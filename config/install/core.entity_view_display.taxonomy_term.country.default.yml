@@ -1,0 +1,38 @@
+langcode: ro
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.country.field_code2l
+    - field.field.taxonomy_term.country.field_code3l
+    - field.field.taxonomy_term.country.field_flag
+    - field.field.taxonomy_term.country.field_name_official
+    - taxonomy.vocabulary.country
+  module:
+    - image
+id: taxonomy_term.country.default
+targetEntityType: taxonomy_term
+bundle: country
+mode: default
+content:
+  field_flag:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_name_official:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  description: true
+  field_code2l: true
+  field_code3l: true
+  langcode: true

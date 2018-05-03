@@ -1,0 +1,18 @@
+langcode: ro
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_code2l
+    - taxonomy.vocabulary.country
+id: taxonomy_term.country.field_code2l
+field_name: field_code2l
+entity_type: taxonomy_term
+bundle: country
+label: Code2l
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

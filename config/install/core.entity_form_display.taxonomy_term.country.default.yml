@@ -1,0 +1,61 @@
+langcode: ro
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.country.field_code2l
+    - field.field.taxonomy_term.country.field_code3l
+    - field.field.taxonomy_term.country.field_flag
+    - field.field.taxonomy_term.country.field_name_official
+    - image.style.thumbnail
+    - taxonomy.vocabulary.country
+  module:
+    - image
+id: taxonomy_term.country.default
+targetEntityType: taxonomy_term
+bundle: country
+mode: default
+content:
+  field_code2l:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_code3l:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_flag:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_name_official:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
