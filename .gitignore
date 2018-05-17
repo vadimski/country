@@ -1,4 +1,4 @@
 # IDE projects
 .idea/
-files/
+files/*
 !files/phpex/*
